@@ -15,12 +15,15 @@ export default function component(object) {
     isDescriptor: true,
 
     value(replacement) {
+      replacement = replacement || '';
       let definition = {};
-      let scope = object.scopeTemplate.replace(/&/g, replacement);
+      let scope = object.scope.replace(/&/gm, replacement);
 
       _assign(definition, object, { scope });
 
-      return create(definition, { parent: this });
+      return create(definition, {
+        parent: this
+      });
     }
   };
 }
