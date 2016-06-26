@@ -15,9 +15,10 @@ export default function component(object) {
     isDescriptor: true,
 
     value(replacement) {
-      replacement = replacement || '';
+      replacement = typeof replacement === 'undefined' ? '': replacement;
+
       let definition = {};
-      let scope = object.scope.replace(/&/gm, replacement);
+      let scope = object.scope.replace(/&/g, replacement);
 
       _assign(definition, object, { scope });
 

@@ -8,8 +8,15 @@ import {
 
 import component from 'ember-cli-page-object-component/component';
 
+const input = component({
+  scope: '.control-&',
+  label: text(),
+  fill: fillable('input'),
+  value: value('input')
+});
+
 export default create({
-  visit: visitable('/'),
+  visit: visitable('/registration'),
 
   scope: 'form',
 
@@ -20,11 +27,6 @@ export default create({
       scope: 'legend'
     },
 
-    input: component({
-      scope: '.control-&',
-      label: text(),
-      fill: fillable('input'),
-      value: value('input')
-    })
+    input
   })
 });
