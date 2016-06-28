@@ -7,7 +7,7 @@ import {
   text
 } from 'ember-cli-page-object';
 
-import component from 'ember-cli-page-object-component/component';
+// import component from 'ember-cli-page-object-component/component';
 
 export default create({
   visit: visitable('/list'),

@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import pageComponent from 'ember-cli-page-object-component/component';
 import { module, test } from 'qunit';
 
