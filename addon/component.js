@@ -3,6 +3,8 @@ import Ember from 'ember';
 
 const {assign, merge} = Ember;
 
+const placeholder = /&/g;
+
 // backward compatibility with ember@1.13
 const _assign = function(target, p1, p2) {
   return assign ?
@@ -10,15 +12,24 @@ const _assign = function(target, p1, p2) {
     merge(merge(target, p1), p2);
 }
 
+function buildSelector(selector, replacement) {
+  replacement = typeof replacement === 'undefined' ? '&': replacement;
+
+  let scope = selector.replace(placeholder, replacement);
+  if (placeholder.test(scope)) {
+    throw new Error('Scope template "' + scope + '" failed to compile');
+  }
+
+  return scope;
+}
+
 export default function component(object) {
-  return {
+  return create({
     isDescriptor: true,
 
     value(replacement) {
-      replacement = typeof replacement === 'undefined' ? '': replacement;
-
       let definition = {};
-      let scope = object.scope.replace(/&/g, replacement);
+      let scope = buildSelector(object.scope, replacement);
 
       _assign(definition, object, { scope });
 
@@ -26,5 +37,5 @@ export default function component(object) {
         parent: this
       });
     }
-  };
+  });
 }

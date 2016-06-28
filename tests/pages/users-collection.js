@@ -3,7 +3,7 @@ import {
   create,
   visitable,
   // fillable,
-  // value,
+  value,
   text
 } from 'ember-cli-page-object';
 
@@ -16,8 +16,9 @@ export default create({
     scope: '.card-list',
     itemScope: 'li',
 
-    item: component({
-      title: text('h3')
-    })
+    item: {
+      title: text('h3'),
+      gender: value('input[name=gender][checked]')
+    }
   })
 });
