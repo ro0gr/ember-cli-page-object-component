@@ -1,4 +1,4 @@
-import pageComponent from 'ember-cli-page-object-component/component';
+import pageComponent from 'ember-cli-page-object-component';
 import { module, test } from 'qunit';
 
 module('Unit | Page Object | component');

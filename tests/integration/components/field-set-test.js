@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import component from 'ember-cli-page-object-component/component';
+import component from 'ember-cli-page-object-component';
 
 import {
   fillable,
@@ -35,7 +35,6 @@ test('Should handle dynamic fieldsets', function(assert) {
   ]);
 
   page.render(hbs`
-    <style>body {color: red;}</style>
     {{field-set fields=fields}}
   `);
 
@@ -53,5 +52,4 @@ test('Should handle dynamic fieldsets', function(assert) {
   assert.ok(page.input('middlename').isVisible, 'middle name is visible');
   assert.ok(page.input('lastname').isVisible, 'last name is visible');
   assert.equal(page.controlsCount, 3, 'Only ukrainian name fields are shown');
-  page.input('lastname').fill('test');
 });
