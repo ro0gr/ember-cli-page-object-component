@@ -1,16 +1,10 @@
 import {create} from 'ember-cli-page-object';
 import Ember from 'ember';
 
-const {assign, merge} = Ember;
-
 const placeholder = /&/g;
 
 // backward compatibility with ember@1.13
-const _assign = function(target, p1, p2) {
-  return assign ?
-    assign(target, p1, p2) :
-    merge(merge(target, p1), p2);
-}
+const assign = Ember.assign || Object.assign;
 
 function buildSelector(selector, replacement) {
   replacement = typeof replacement === 'undefined' ? '&': replacement;
@@ -31,7 +25,7 @@ export default function component(object) {
       let definition = {};
       let scope = buildSelector(object.scope, replacement);
 
-      _assign(definition, object, { scope });
+      assign(definition, object, { scope });
 
       return create(definition, {
         parent: this

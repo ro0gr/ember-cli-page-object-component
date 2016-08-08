@@ -1,9 +1,10 @@
 import Ember from 'ember';
 const {
   computed,
-  guidFor,
-  assign
+  guidFor
 } = Ember;
+
+const assign = Ember.assign || Object.assign;
 
 export default Ember.Component.extend({
   tagName: 'fieldset',
