@@ -1,0 +1,8 @@
+{{#each _fields as |f|}}
+<div class="control control-{{f.name}}">
+  <label for="{{f.id}}">{{f.name}}:</label>
+  <input name="{{f.name}}" id="{{f.id}}" />
+</div>
+{{/each}}
+
+{{yield}}

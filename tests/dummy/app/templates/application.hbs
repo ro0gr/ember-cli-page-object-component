@@ -1,0 +1,9 @@
+<select onchange={{route-action "changeCountry"}}>
+  {{#each model.countries as |c|}}
+    <option value="{{c}}">{{c}}</option>
+  {{/each}}
+</select>
+
+{{field-set fields=(get model.fields 'ua')}}
+
+{{outlet}}
