@@ -12,7 +12,6 @@ test('should build complete selector if replacement is specified', function(asse
   assert.equal('.a-cls', c.scope, 'scope is compiled');
 });
 
-
 test('should not touch the scope if no placeholder specified', function(assert) {
   let subject = pageComponent({
     scope: '.some-scope-cls'

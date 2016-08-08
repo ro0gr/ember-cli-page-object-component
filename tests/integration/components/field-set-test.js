@@ -53,3 +53,22 @@ test('Should handle dynamic fieldsets', function(assert) {
   assert.ok(page.input('lastname').isVisible, 'last name is visible');
   assert.equal(page.controlsCount, 3, 'Only ukrainian name fields are shown');
 });
+
+test('Should fill values', function(assert) {
+  this.set('fields', [
+    { name: 'login' },
+    { name: 'password' }
+  ]);
+
+  page.render(hbs`
+    {{field-set fields=fields}}
+  `);
+
+  const loginField = page.input('login'),
+    passwordField = page.input('password');
+  loginField.fill('username');
+  passwordField.fill('pwd');
+
+  assert.equal(loginField.value, 'username', 'login field is filled with  \'username\' value');
+  assert.equal(passwordField.value, 'pwd', 'password field is filled with  \'pwd\' value');
+});
