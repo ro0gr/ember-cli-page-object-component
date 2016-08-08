@@ -1,6 +1,6 @@
 # Ember-cli-page-object-component
 
-[![Build Status](https://travis-ci.org/ro0gr/ember-cli-page-object-component.svg?branch=master)](https://travis-ci.org/ro0gr/ember-cli-open)
+[![Build Status](https://travis-ci.org/ro0gr/ember-cli-page-object-component.svg?branch=master)](https://travis-ci.org/ro0gr/ember-cli-page-object-component)
 
 Prototype implementation for [ember cli page object components](https://github.com/san650/ember-cli-page-object/issues/198)
 
